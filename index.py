@@ -5,10 +5,14 @@ from dash.dependencies import Input, Output
 import  csv
 import pandas as pd
 import plotly.graph_objs as go
+from flask import render_template
+
 
 # Step 1. Launch the application
 app = dash.Dash()
-
+@app.route("/about")
+def about():
+    return render_template("index.html")
 # Step 2. Import the dataset
 df = pd.read_csv('https://api.thingspeak.com/channels/807292/feeds.csv')
 
